@@ -15,15 +15,26 @@ string[] InitiallArray(int length)
     return result;
 }
 
+int MatchCount(string[] array)
+{
+    int i = 0;
+    int matchCount = 0;
+    foreach (var item in array)
+    {
+        matchCount = (item.Length <= 3) ? (++i) : i;
+    }
+    return matchCount;
+}
+
 string[] ProccensingArray(string[] array)
 {
-    string[] result = new string[array.Length];
     int i = 0;
+    string[] result = new string[MatchCount(array)]; 
     foreach (var item in array)
     {
         if (item.Length <= 3)
         {
-            result[i++] = item;      
+            result[i++] = item;
         }
     }
     return result;
