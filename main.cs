@@ -25,3 +25,22 @@ int MatchCount(string[] array)
     }
     return matchCount;
 }
+
+string[] ProccensingArray(string[] array)
+{
+    int i = 0;
+    string[] result = new string[MatchCount(array)];
+    foreach (var item in array)
+    {
+        if (item.Length <= 3)
+        {
+            result[i++] = item;
+        }
+    }
+    return result;
+}
+
+string[] myArray = InitiallArray(5);
+System.Console.WriteLine($"[{string.Join(", ", myArray)}]");
+myArray = ProccensingArray(myArray);
+System.Console.WriteLine($"[{string.Join(", ", myArray)}]");
