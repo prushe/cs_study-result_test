@@ -1,4 +1,4 @@
-string[] InitiallArray(int length)
+string[] InitialArray(int length)
 {
     char[] alphabetEng = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
     string[] result = new string[length];
@@ -26,7 +26,7 @@ int MatchCount(string[] data)
     return matchCount;
 }
 
-string[] ProccensingArray(string[] data)
+string[] ProcessingArray(string[] data)
 {
     int i = 0;
     string[] result = new string[MatchCount(data)];
@@ -40,7 +40,7 @@ string[] ProccensingArray(string[] data)
     return result;
 }
 
-string[] myArray = InitiallArray(5);
+string[] myArray = InitialArray(5);
 System.Console.WriteLine($"[{string.Join(", ", myArray)}]");
-myArray = ProccensingArray(myArray);
+myArray = ProcessingArray(myArray);
 System.Console.WriteLine($"[{string.Join(", ", myArray)}]");
