@@ -8,11 +8,29 @@ string[] InitiallArray(int length)
         int wordLength = rand.Next(0, 8);
         for (int l = 0; l < wordLength; l++)
         {
-            result[i] += alphabetEng[rand.Next(0,26)];
+            result[i] += alphabetEng[rand.Next(0, 26)];
         }
-        
+
     }
     return result;
 }
 
-System.Console.WriteLine($"[{string.Join(", ", InitiallArray(3))}]");
+string[] ProccensingArray(string[] array)
+{
+    string[] result = new string[array.Length];
+    int i = 0;
+    foreach (var item in array)
+    {
+        if (item.Length <= 3)
+        {
+            result[i++] = item;      
+        }
+    }
+    return result;
+}
+
+//debug
+string[] myArray = InitiallArray(5);
+System.Console.WriteLine($"[{string.Join(", ", myArray)}]");
+myArray = ProccensingArray(myArray);
+System.Console.WriteLine($"[{string.Join(", ", myArray)}]");
