@@ -5,7 +5,7 @@ string[] InitiallArray(int length)
     Random rand = new Random();
     for (int i = 0; i < length; i++)
     {
-        int wordLength = rand.Next(0, 8);
+        int wordLength = rand.Next(1, 8);
         for (int l = 0; l < wordLength; l++)
         {
             result[i] += alphabetEng[rand.Next(0, 26)];
@@ -15,22 +15,13 @@ string[] InitiallArray(int length)
     return result;
 }
 
-string[] ProccensingArray(string[] array)
+int MatchCount(string[] array)
 {
-    string[] result = new string[array.Length];
     int i = 0;
+    int matchCount = 0;
     foreach (var item in array)
     {
-        if (item.Length <= 3)
-        {
-            result[i++] = item;      
-        }
+        matchCount = (item.Length <= 3) ? (++i) : i;
     }
-    return result;
+    return matchCount;
 }
-
-//debug
-string[] myArray = InitiallArray(5);
-System.Console.WriteLine($"[{string.Join(", ", myArray)}]");
-myArray = ProccensingArray(myArray);
-System.Console.WriteLine($"[{string.Join(", ", myArray)}]");
